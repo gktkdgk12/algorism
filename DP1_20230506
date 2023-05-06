@@ -1,0 +1,39 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+class Main {
+
+    static long num1 = 0;
+    static long num2 = 1;
+    static long sum = 0;
+    static int idx = 0;
+    static List<Long> numList = new ArrayList<Long>();
+    
+    public static void main(String[] args) throws IOException {
+        
+        // InputStreamReader를 사용해서 입력받고 BufferedReader로 읽음
+        BufferedReader inputStr = new BufferedReader(new InputStreamReader(System.in));
+        // StringTokenizer로 BufferedReader를 읽음 
+        StringTokenizer strToken = new StringTokenizer(inputStr.readLine());
+        // idx 반복해야할 회수 제한을 String로 입력 받았기 때문에 형 변환                 
+        idx = Integer.parseInt(strToken.nextToken());
+        
+        //
+        numList.add(num1);
+        numList.add(num2);
+
+        for (int i=0; numList.size() < idx+1; i++){
+            
+            sum = numList.get(i) + numList.get(i+1);
+            numList.add(sum);
+
+            
+        }
+        System.out.println(numList.get(idx));
+    }
+    
+}
